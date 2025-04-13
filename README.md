@@ -1,4 +1,4 @@
-Repozytorium zawiera kolekcję prostych programów napisanych w języku C#, służących jako przykłady podstawowych funkcjonalności programistycznych.
+Repozytorium zawiera kolekcje programów napisanych w języku C#, służących jako przykłady podstawowych funkcjonalności programistycznych.
 
 Zawartość repozytorium
 
