@@ -1,0 +1,49 @@
+using System;
+
+class KonwerterTemperatur
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Wybierz kierunek konwersji:");
+        Console.WriteLine("C : Celsjusz → Fahrenheit");
+        Console.WriteLine("F : Fahrenheit → Celsjusz");
+
+        string kierunek;
+        while (true)
+        {
+            Console.Write("Podaj kierunek (C/F): ");
+            kierunek = Console.ReadLine().ToUpper();
+            if (kierunek == "C" || kierunek == "F")
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Błąd: niepoprawny kierunek!");
+            }
+        }
+
+        float temperatura;
+        while (true)
+        {
+            Console.Write("Podaj wartość temperatury: ");
+            if (float.TryParse(Console.ReadLine(), out temperatura))
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Błąd: podano nieprawidłową temperaturę!");
+            }
+        }
+
+        if (kierunek == "C")
+        {
+            Console.WriteLine($"{temperatura}°C = {(temperatura * 1.8f + 32):F2}°F");
+        }
+        else
+        {
+            Console.WriteLine($"{temperatura}°F = {(temperatura - 32) / 1.8f:F2}°C");
+        }
+    }
+}

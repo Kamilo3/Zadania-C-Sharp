@@ -1,0 +1,45 @@
+using System;
+
+class ObliczSredniaOcen
+{
+    static void Main(string[] args)
+    {
+        int liczbaOcen = PobierzLiczbeOcen();
+        int suma = 0;
+
+        for (int i = 0; i < liczbaOcen; i++)
+        {
+            suma += PobierzOcene(i + 1);
+        }
+
+        double srednia = (double)suma / liczbaOcen;
+        Console.WriteLine($"Średnia: {srednia:F2}");
+        Console.WriteLine(srednia >= 3.0 ? "Uczeń zdał." : "Uczeń nie zdał.");
+    }
+
+    static int PobierzLiczbeOcen()
+    {
+        while (true)
+        {
+            Console.Write("Podaj liczbę ocen: ");
+            if (int.TryParse(Console.ReadLine(), out int liczbaOcen) && liczbaOcen > 0)
+            {
+                return liczbaOcen;
+            }
+            Console.WriteLine("Błąd: liczba ocen musi być dodatnia!");
+        }
+    }
+
+    static int PobierzOcene(int nrOceny)
+    {
+        while (true)
+        {
+            Console.Write($"Podaj ocenę {nrOceny} (1-6): ");
+            if (int.TryParse(Console.ReadLine(), out int ocena) && ocena >= 1 && ocena <= 6)
+            {
+                return ocena;
+            }
+            Console.WriteLine("Błąd: ocena musi być w zakresie 1-6!");
+        }
+    }
+}

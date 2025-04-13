@@ -1,0 +1,55 @@
+using System;
+
+class ProstyKalkulator
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Podaj pierwszą liczbę: ");
+        float liczba1 = float.Parse(Console.ReadLine());
+
+        Console.Write("Podaj drugą liczbę: ");
+        float liczba2 = float.Parse(Console.ReadLine());
+
+        Console.WriteLine("Dostępne operacje:");
+        Console.WriteLine("+ : dodawanie");
+        Console.WriteLine("- : odejmowanie");
+        Console.WriteLine("* : mnożenie");
+        Console.WriteLine("/ : dzielenie");
+
+        Console.Write("Wybierz operację (+, -, *, /): ");
+        string operacja = Console.ReadLine();
+
+        float wynik;
+        if (operacja == "+")
+        {
+            wynik = liczba1 + liczba2;
+        }
+        else if (operacja == "-")
+        {
+            wynik = liczba1 - liczba2;
+        }
+        else if (operacja == "*")
+        {
+            wynik = liczba1 * liczba2;
+        }
+        else if (operacja == "/")
+        {
+            if (liczba2 != 0)
+            {
+                wynik = liczba1 / liczba2;
+            }
+            else
+            {
+                Console.WriteLine("Błąd: nie można dzielić przez zero!");
+                return;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Błąd: niepoprawna operacja!");
+            return;
+        }
+
+        Console.WriteLine($"Wynik: {wynik}");
+    }
+}
